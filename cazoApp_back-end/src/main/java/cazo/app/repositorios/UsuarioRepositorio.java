@@ -7,5 +7,5 @@ import cazo.app.modelo.Usuario;
 
 @Repository
 public interface UsuarioRepositorio extends JpaRepository<Usuario, Long>{
-
+	
 }

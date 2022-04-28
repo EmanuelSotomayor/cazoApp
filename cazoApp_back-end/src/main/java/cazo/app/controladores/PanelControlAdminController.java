@@ -1,0 +1,10 @@
+package cazo.app.controladores;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+@RequestMapping("/panelAdmin")
+public class PanelControlAdminController {
+
+}

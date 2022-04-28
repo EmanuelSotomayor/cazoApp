@@ -1,5 +1,12 @@
 package cazo.app.modelo;
 
-public class Reserva {
 
+
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "Reserva")
+public class Reserva{
+	
 }

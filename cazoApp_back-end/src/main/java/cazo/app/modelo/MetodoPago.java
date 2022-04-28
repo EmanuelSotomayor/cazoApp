@@ -1,5 +1,12 @@
 package cazo.app.modelo;
 
-public class MetodoPago {
+
+
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "MetodoPago")
+public class MetodoPago{
 
 }

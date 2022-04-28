@@ -1,6 +1,7 @@
 package cazo.app.modelo;
 
-import java.io.Serializable;
+
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,9 +11,9 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "ActividadTipo")
-public class ActividadTipo extends Actividad implements Serializable {
+public class ActividadTipo extends Actividad{
 
-    @Id
+	@Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "actividadTipo_id")
     private Long id;
@@ -20,17 +21,19 @@ public class ActividadTipo extends Actividad implements Serializable {
     private String descripcion;
     @Column(name = "actividadTipo_cupo", nullable = false)
     private Integer cupo;
-
+    
+    //Constructor vacio
     public ActividadTipo() {
     }
-
+    //Constructor parametrizado
     public ActividadTipo(Long id, String descripcion, Integer cupo, String nombre, String url) {
         super(id, nombre, url);
         this.cupo = cupo;
         this.descripcion = descripcion;
 
     }
-
+    
+    //Getters y setters
     public Long getId() {
         return id;
     }
