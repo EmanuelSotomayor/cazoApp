@@ -1,0 +1,171 @@
+:root{
+    --background-btn-color: #e73535;
+    --background-error-color: #ff9090;
+    --error-color-message: #f53838;
+    --font-principal-color: #FFFFFF;
+    --border-color:#ccc;
+    --background-form-color: #FFFFFF;
+    --background-gradient-color: rgba(0, 0, 0, 0.671);
+    --background-line-color: #ccc;
+    --background-btn-hover: gray;
+    --background-line-color-pseudo: gray;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    display: grid;
+    place-items: center;
+    place-content: center;
+    min-height: 100vh;
+    background-image: linear-gradient(var(--background-gradient-color), 
+    var(--background-gradient-color)), url(/imgs/background-login.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position-y: 60%;
+}
+
+.form{
+    width: 45vw;
+    margin: 0 auto;
+    border: 0.0625rem solid var(--border-color);
+    border-radius: 0.30em;
+    padding: 2rem;
+    background-color: var(--background-form-color);
+    transition: 0.5s;
+}
+
+.form-step{
+    display: none;
+    transition: 0.5s;
+}
+
+.form-step-active{
+    display: block;
+    transition: 0.5s;
+}
+
+.title{
+    font-size: 1.5rem;
+    text-align: center;
+    position: relative;
+    bottom: 1.15rem;
+}
+
+.progress-bar{
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /*Es para resetear el contador*/
+    counter-reset: step;
+    width: 100%;
+    bottom: .5em;
+}
+
+.progress-step{
+    width: 2rem;
+    height: 2rem;
+    background-color: var(--background-btn-hover);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 999;
+    transition: 0.5s;
+}
+
+.progress-step-active{
+    background-color: #e73535;
+    transition: 0.5s;
+}
+
+.progress-step::before{
+    /*Es para incrementar el contador de uno en uno por cada elemento*/
+    counter-increment: step;
+    /*Le pasamos al contenido, el valor de content() y como parámetro, le pasamos el nombre del counter*/
+    content: counter(step);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /*Como el pseudoelemento está posicionado y su padre también,
+    por el contexto de apilamiento y el z-index, el pseudoelemento se va para atrás*/
+    position: relative;
+    color: var(--font-principal-color);
+}
+
+.progress-step::after{
+    content: attr(data-title);
+    position: absolute;
+    top: 100%;
+    font-size: .70rem;
+}
+
+.progress-bar::before{
+    content: '';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 0.30rem;
+    width: 95%;
+    background-color: var(--background-line-color-pseudo);
+}
+
+.form label{
+    display: block;
+    margin-bottom: 0.25em;
+}
+
+.form label span{
+    color: #e73535;
+}
+
+.form input, .form select{
+    display: block;
+    width: 100%;
+    padding: 0.50em;
+    border: 0.0625rem solid var(--border-color);
+    outline: none;
+}
+
+.field{
+    margin: 1em 0;
+}
+
+.btns .btn, .btnFirst{
+    padding: 1em 2em;
+    background-color: var(--background-btn-color);
+    border: none;
+    border-radius: 0.20em;
+    color: var(--font-principal-color);
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    width: 100%;
+}
+
+.btns{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1em;
+}
+
+.btns button:hover, .btnNext button:hover{
+    transition: 0.5s;
+    background-color: var(--background-btn-hover);
+}
+
+.error{
+	width: 100%;
+	padding: 1em;
+	background-color: var(--background-error-color);
+	color: var(--error-color-message);
+	display: inline-block;
+	font-size: .9rem;
+}

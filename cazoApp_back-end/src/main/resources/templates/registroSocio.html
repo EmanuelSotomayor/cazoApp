@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ES" xmlns="http://www.w3.org/1999/xhtml"
+xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>CazoApp - Registro</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+        <link type="text/css" rel="stylesheet" href="/css/styles.css">
+    </head>
+    <body>
+        <main class="container">
+                <form class="form" th:action="@{/socio/registro}" method="POST">
+                    <h1 class="title">Formulario de registro</h1>
+                    <!--Este elemento será la barra de progreso
+                    y elementos hijos de dentro, representan a los pasos de progreso-->
+                    <div class="progress-bar">
+                        <!--Creamos el atributo data-title, para darle un titulo
+                        y así después poder llamarlo en el content del pseudoelemento ::after
+                        y como argumento le pasamos el data-title, para que muestre
+                        cada uno de los data-title correspondientes-->
+                        <div class="progress-step" data-title="Información"></div>
+                        <div class="progress-step" data-title="Nacimiento"></div>
+                        <div class="progress-step" data-title="Documentación"></div>
+                        <div class="progress-step" data-title="Procedencia"></div>
+                        <div class="progress-step" data-title="Ubicación"></div>
+                        <div class="progress-step" data-title="Contacto"></div>
+                        <div class="progress-step" data-title="Usuario"></div>
+                    </div>
+
+                    <div class="form-step form-step-active">
+
+                        <!--Definimos un campo que contendrá el input y el label-->
+                        <div class="field">
+                            <label for="idNombre">Nombre <span>*</span></label>
+                            <input id="idNombre" type="text" th:value="*{socio_nombre}" name="socio_nombre" placeholder="Nombre: " autofocus>
+                        </div>
+                         <!--Definimos un campo que contendrá el input y el label-->
+                        <div class="field">
+                            <label for="idApellido">Apellido <span>*</span></label>
+                            <input id="idApellido" type="text" th:value="*{socio_apellido}" name="socio_apellido" placeholder="Apellido: ">
+                        </div>
+                        <!--Definimos un campo que contendrá el botón siguiente-->
+                        <div class="field btnNext">
+                            <button class="next btnFirst" type="button">Siguiente</button>
+                        </div>
+                    </div>
+
+                    <div class="form-step">
+                        <!--Definimos un campo que contendrá el input y el label-->
+                        <div class="field">
+                            <label for="sexo">Sexo <span>*</span></label>
+                            <select id="sexo" th:value="${sexos}" name="socio_sexo">
+                                <option th:each="socio_sexo: ${sexos}" th:value="*{socio_sexo}" th:text="${socio_sexo}"></option>
+                            </select>
+                        </div>
+                        <!--Definimos un campo que contendrá el input y el label-->
+                        <div class="field">
+                            <label for="idFecha">Fecha de nacimiento <span>*</span></label>
+                            <input id="idFecha" type="date" th:value="*{socio_fecha_nac}" name="socio_fecha_nac">
+                        </div>
+                        <!--Definimos un campo que contendrá los botones siguiente y atrás-->
+                        <div class="field btns">
+                            <button type="button" class="btn prev">Atrás</button>
+                            <button type="button" class="btn next">Siguiente</button>
+                        </div>
+                    </div>
+
+                    <div class="form-step">
+                        <!--Definimos un campo que contendrá el input y el label-->
+                        <div class="field">
+                            <label for="idTipoDoc">Tipo documento <span>*</span></label>
+                            <select id="idTipoDoc" th:value="*{tiposDoc}" name="documento_tipo">
+								<option th:each="documento_tipo: ${tiposDoc}" th:value="*{documento_tipo}" th:text="${documento_tipo}"></option>
+							</select>
+                        </div>
+                        <!--Definimos un campo que contendrá el input y el label-->
+                        <div class="field">
+                            <label for="idDoc">Valor de documento <span>*</span></label>
+                            <input id="idDoc" type="text" th:value="*{documento_valor}" name="documento_valor" placeholder="Valor de documento: ">
+                        </div>
+                            <!--Definimos un campo que contendrá los botones siguiente y atrás-->
+                        <div class="field btns">
+                            <button type="button" class="btn prev">Atrás</button>
+                            <button type="button" class="btn next">Siguiente</button>
+                        </div>
+                    </div>
+
+                    <div class="form-step">
+                        <!--Definimos un campo que contendrá el input y el label-->
+                        <div class="field">
+                            <label for="idNac">Nacionalidad <span>*</span></label>
+                            <input id="idNac" type="text" th:value="*{procedencia_nac}" name="procedencia_nac" placeholder="Nacionalidad: ">
+                        </div>
+                        <!--Definimos un campo que contendrá el input y el label-->
+                        <div class="field">
+                            <label for="idProv">Provincia <span>*</span></label>
+                            <input id="idProv" type="text" th:value="*{procedencia_prov}" name="procedencia_prov" placeholder="Provincia: ">
+                        </div>
+                        <!--Definimos un campo que contendrá el input y el label-->
+                        <div class="field">
+                            <label for="idLoc">Localidad <span>*</span></label>
+                            <input id="idLoc" type="text" th:value="*{procedencia_loc}" name="procedencia_loc" placeholder="Localidad: ">
+                        </div>
+                        <!--Definimos un campo que contendrá los botones siguiente y atrás-->
+                        <div class="field btns">
+                            <button type="button" class="btn prev">Atrás</button>
+                            <button type="button" class="btn next">Siguiente</button>
+                        </div>
+                    </div>
+
+                    <div class="form-step">
+                        <!--Definimos un campo que contendrá el input y el label-->
+                        <div class="field">
+                            <label for="idCiudad">Ciudad <span>*</span></label>
+                            <input id="idCiudad" type="text" th:value="*{procedencia_ciudad}" name="procedencia_ciudad" placeholder="Ciudad: ">
+                        </div>
+                        <!--Definimos un campo que contendrá el input y el label-->
+                        <div class="field">
+                            <label for="idDireccion">Direccion <span>*</span></label>
+                            <input id="idDireccion" type="text" th:value="*{procedencia_dir}" name="procedencia_dir" placeholder="Dirección: ">
+                        </div>
+                        <!--Definimos un campo que contendrá el input y el label-->
+                        <div class="field">
+                            <label for="idNumDir">Altura <span>*</span></label>
+                            <input id="idNumDIr" type="number" th:value="*{procedencia_dir_num}" name="procedencia_dir_num" placeholder="Altura: ">
+                        </div>
+                        <!--Definimos un campo que contendrá el input y el label-->
+                        <div class="field">
+                            <label for="idCod">Código postal <span>*</span></label>
+                            <input id="idCod" type="number" th:value="*{procedencia_cod}" name="procedencia_cod" placeholder="Código postal: ">
+                        </div>
+                            <!--Definimos un campo que contendrá los botones siguiente y atrás-->
+                        <div class="field btns">
+                            <button type="button" class="btn prev">Atrás</button>
+                            <button type="button" class="btn next">Siguiente</button>
+                        </div>
+                    </div>
+
+                    <div class="form-step">
+                        <!--Definimos un campo que contendrá el input y el label-->
+                        <div class="field">
+                            <label for="idCorreo">Correo electronico <span>*</span></label>
+                            <input id="idCorreo" type="email" th:value="*{socio_correo}" name="socio_correo" placeholder="Correo electronico: ">
+                        </div>
+                        <!--Definimos un campo que contendrá el input y el label-->
+                        <div class="field">
+                            <label for="idTel">Telefono <span>*</span></label>
+                            <input id="idTel" type="text" th:value="*{socio_telefono}" name="socio_telefono" placeholder="Telefono: ">
+                        </div>
+                        <!--Definimos un campo que contendrá los botones siguiente y atrás-->
+                        <div class="field btns">
+                            <button type="button" class="btn prev">Atrás</button>
+                            <button type="button" class="btn next">Siguiente</button>
+                        </div>
+                    </div>
+
+                    <div class="form-step">
+                        <!--Definimos un campo que contendrá el input y el label-->
+                        <div class="field">
+                            <label for="idUsuario">Usuario <span>*</span></label>
+                            <input id="idUsuario" type="text" th:value="*{usuario_nombre}" name="usuario_nombre" placeholder="Usuario: ">
+                        </div>
+                        <!--Definimos un campo que contendrá el input y el label-->
+                        <div class="field">
+                            <label for="idClave">Contraseña <span>*</span></label>
+                            <input id="idClave" type="password" th:value="*{usuario_clave}" name="usuario_clave" placeholder="Contraseña: ">
+                        </div>
+                        <!--Definimos un campo que contendrá el input y el label-->
+                        <div class="field">
+                            <label for="idClaveRep">Confirmar contraseña <span>*</span></label>
+                            <input id="idClaveRep" type="password" th:value="*{usuario_clave_rep}" name="usuario_clave_rep" placeholder="Confirmar contraseña: ">
+                        </div>
+                        <!--Definimos un campo que contendrá los botones siguiente y atrás-->
+                        <div class="field btns">
+                            <button type="button" class="btn prev">Atrás</button>
+                            <button type="submit" class="btn submit" value="Registrar">Registrar</button>
+                        </div>
+                    </div>
+                                        
+                    <div class="errorContainer">
+                        <span class="error" th:if="${scError != null}" th:text="${scError}"></span>
+                        <span class="error" th:if="${usrError != null}" th:text="${usrError}"></span>
+                    </div>
+                </form>
+        </main>
+    <script src="/js/app.js"></script>
+    </body>
+</html>
