@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ES" xmlns="http://www.w3.org/1999/xhtml"
+xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+     <title>CazoApp - Iniciar Sesión</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/iniciar-sesion.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald|Ubuntu">
+    <link rel="icon" type="image/png" href="/imgs/cazo.png">
+</head>
+
+<body>
+    <main class="container">
+            <form class="form" th:action="@{/logincheck}" method="POST">
+                <h1 class="title">Ingresá a tu cuenta</h1>
+
+                <div class="form-step-active">
+                    <!--Definimos un campo que contendrá el input y el label-->
+                    <div class="field">
+                        <label for="idUsuario">Usuario <span>*</span></label>
+                        <input id="idUsuario" type="text" th:value="*{usuario_nombre}" name="usuario_nombre" placeholder="Usuario: ">
+                    </div>
+                    <!--Definimos un campo que contendrá el input y el label-->
+                    <div class="field">
+                        <label for="idClave">Contraseña <span>*</span></label>
+                        <input id="idClave" type="password" th:value="*{usuario_clave}" name="usuario_clave" placeholder="Contraseña: ">
+                    </div>
+                    <!--Definimos un campo que contendrá los botones siguiente y atrás-->
+                    <div class="field btns">
+                        <button type="submit" class="btn submit">Ingresar</button>
+                    </div>
+                    <div class="errorContainer">
+                        <span class="error" th:if="${usrError != null}" th:text="${usrError}"></span>
+                        <span class="desautenticacion" th:if="${logout != null}" th:text="${logout}"></span>
+                    </div>
+                </div>
+                <h5>¿Aún no tenés cuenta en CAZO? <a th:href="@{/socio/registro}">¡Registrate acá!</a></h5>
+            </form>
+    </main>
+<script src="/js/iniciar-sesion.js"></script>
+</body>
+
+</html>

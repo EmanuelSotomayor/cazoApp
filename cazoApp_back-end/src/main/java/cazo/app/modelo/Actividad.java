@@ -1,7 +1,4 @@
 package cazo.app.modelo;
-
-
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,55 +7,44 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "Actividad")
-public class  Actividad{
+@Table(name = "actividad")
+public class Actividad{
 
 	@Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="actividad_id")
-    private Long id;
+    private Long actividad_id;
     @Column(name = "actividad_nombre", length = 50, nullable = false)
-    private String nombre;
-    @Column(name = "actividad_url", length = 255, nullable = false)
-    private String url;
+    private String actividad_nombre;
     
     //Constructor vacio
     public Actividad() {}
     //Constructor parametrizado
-    public Actividad(Long id, String nombre, String url) {
-        this.id = id;
-        this.nombre = nombre;
-        this.url = url;
+    public Actividad(Long actividad_id, String actividad_nombre) {
+        this.actividad_id = actividad_id;
+        this.actividad_nombre = actividad_nombre;
     }
     
     //Getters y setters
-    public Long getId() {
-        return id;
+    public Long getActividad_id() {
+        return actividad_id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setActividad_id(Long actividad_id) {
+        this.actividad_id = actividad_id;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getActividad_nombre() {
+        return actividad_nombre;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setActividad_nombre(String actividad_nombre) {
+        this.actividad_nombre = actividad_nombre;
     }
-
-    public String getUrl() {
-        return url;
-    }
-
-    public void setUrl(String url) {
-        this.url = url;
-    }
-
-    @Override
-    public String toString() {
-        return "Actividad{" + "id=" + id + ", nombre=" + nombre + ", url=" + url + '}';
-    }
+    
+	@Override
+	public String toString() {
+		return "Actividad [actividad_id=" + actividad_id + ", actividad_nombre=" + actividad_nombre + "]";
+	}
 
 }

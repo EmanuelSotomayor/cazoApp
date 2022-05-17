@@ -1,0 +1,406 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: oswald, serif;
+}
+
+nav {
+    background: rgb(41, 41, 41);
+    padding: 5px 10px;
+}
+
+ul {
+    list-style-type: none;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #03aaaa;
+}
+
+.logo {
+    filter: drop-shadow(0 2px 5px rgba(255, 255, 255, 0.7));
+}
+
+.logo a:hover {
+    text-decoration: none;
+}
+
+.menu li {
+    font-size: 16px;
+    padding: 5px 5px;
+    white-space: nowrap;
+}
+
+.logo a,
+.toggle a {
+    /* toggle: botón de activación para cambiar un ajuste entre dos estados */
+    font-size: 30px;
+}
+
+.button.secondary {
+    border-bottom: 2px rgb(18, 146, 185) solid;
+}
+
+
+/* vista para dispositivos móviles */
+
+/* diseño en filas para mostrar en la parte superior de menu el logo y el boton hamburguesa/cierre */
+/* orden: logo(0) - boton hamburguesa/cierre(1) (parte superior del menu), boton de cierre de sesion(2), resto de los elementos(3) */
+
+.menu {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.toggle {
+    order: 1;
+}
+
+.item.button {
+    order: 2;
+}
+
+.item {
+    /* se extienden por todo el contenedor, quedando uno debajo de otro */
+    width: 100%;
+    text-align: center;
+    order: 3;
+    display: none;
+    /* ocultamiento */
+}
+
+.item.active {
+    display: block;
+}
+
+
+/* vista para tablets */
+/*tambien afecta a la vista para computadoras*/
+
+@media all and (min-width: 600px) {
+
+    .menu {
+        justify-content: center;
+    }
+
+    .logo {
+        flex: 1;
+        /* espacio compartido con toggle (si lo hay) */
+    }
+
+    .toggle {
+        flex: 1;
+        /* espacio compartido con logo */
+        text-align: right;
+    }
+
+    .item.button {
+        width: auto;
+        order: 1;
+        display: block;
+    }
+
+    .toggle {
+        order: 2;
+    }
+
+    .button {
+        border: 0;
+    }
+
+    .button.secondary {
+        border: 0;
+    }
+
+    .button a {
+        padding: 7.5px 15px;
+        background: rgb(19, 175, 175);
+        border: 2px #0a7ea1 solid;
+    }
+
+    .button.secondary a {
+        background: transparent;
+    }
+
+    .button a:hover {
+        text-decoration: none;
+        color: rgb(10, 10, 10);
+    }
+
+    .button a:hover {
+        border-color: #ffffff;
+    }
+
+    .button:not(.secondary) a:hover {
+        border-color: #ffffff;
+    }
+
+    .button.secondary a:hover {
+        color: rgb(20, 204, 204);
+        border-color: #ffffff;
+    }
+
+}
+
+/* vista para computadoras */
+
+@media all and (min-width: 900px) {
+
+    .item {
+        display: block;
+        width: auto;
+    }
+
+    .toggle {
+        display: none;
+    }
+
+    .logo {
+        order: 0;
+    }
+
+    .item {
+        order: 1;
+    }
+
+    .button {
+        order: 2;
+    }
+
+    .menu li {
+        padding: 3px 15px;
+    }
+
+    .menu li.button {
+        padding-right: 0;
+    }
+}
+
+/* ---------------------- */
+
+
+.carousel-caption {
+    position: absolute;
+    right: 15%;
+    top: 50px;
+    left: 15%;
+    padding-top: 10px;
+    color: rgb(0, 0, 0);
+    text-align: center;
+}
+
+.carousel-caption h3 {
+    font-size: 40px;
+    font-style: italic;
+    text-shadow: 3px 3px 3px rgb(19, 168, 228);
+}
+
+.carousel-caption p {
+    font-size: 25px;
+    text-shadow: 3px 3px 3px rgb(255, 255, 255);
+}
+
+@media (min-width: 850px) {
+
+    .carousel-caption {
+        top: 2px;
+        padding-top: 200px;
+    }
+    
+    .carousel-caption h3 {
+        font-size: 70px;}
+    
+    .carousel-caption p {
+        font-size: 35px; }
+
+}
+
+
+/* ---------------------- */
+
+main {
+    /*display: flex;*/
+    flex-grow: 1;
+    background: #00aeef;
+    background: linear-gradient(135deg, rgb(19, 175, 175) 20%, rgb(84, 111, 129) 80%);
+
+
+}
+
+#club .container {
+    text-align: center;
+    padding: 100px 12px;
+    margin-top: 50px;
+    color: black;
+}
+
+#club .container h2 {
+    font-family: oswald;
+    margin-bottom: 20px;
+}
+
+#club .container p {
+    font-family: ubuntu;
+    font-weight: bold;
+    line-height: 1.8;
+}
+
+#actividades {
+    color: white;
+    text-align: center;
+    text-shadow: 3px 3px 3px rgb(0, 0, 0);
+}
+
+#actividades .container {
+    padding: 45px 12px;
+}
+
+#actividades h2 {
+    margin-top: 0;
+    font-size: 2.4em;
+}
+
+#actividades h3 {
+    margin: 25px;
+}
+
+#actividades p {
+    display: none;
+}
+
+#actividades .actividades-tipo {
+    background-position: center center;
+    background-size: cover;
+    padding: 50px 0px;
+    margin: 30px;
+    border-radius: 15px;
+}
+
+.actividades-tipo:first-child {
+    background-image: linear-gradient(0deg,
+            rgba(0, 0, 0, 0.5),
+            rgba(0, 0, 0, 0.5)), url("/imgs/cards/card-deporte.jpg");
+
+}
+
+.actividades-tipo:nth-child(2) {
+    background-image: linear-gradient(0deg,
+            rgba(0, 0, 0, 0.5),
+            rgba(0, 0, 0, 0.5)), url("/imgs/cards/card-cultura.jpg");
+}
+
+.actividades-tipo:nth-child(3) {
+    background-image: linear-gradient(0deg,
+            rgba(0, 0, 0, 0.5),
+            rgba(0, 0, 0, 0.5)), url("/imgs/cards/card-social.jpg");
+
+}
+
+#contacto .container {
+    padding: 45px 12px;
+}
+
+@media (min-width: 850px) {
+
+    #club .container {
+        display: flex;
+        justify-content: space-evenly;
+        height: 600px;
+    }
+
+    #club .texto {
+        width: 50%;
+        max-width: 600px;
+        text-align: initial;
+        padding-left: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    #club h2 {
+        margin-top: 0px;
+        font-size: 45px;
+    }
+
+    #club .img-container {
+        background-image: url("/imgs/cazo.png");
+        background-repeat: no-repeat;
+        background-position: center;
+        height: 400px;
+        width: 500px;
+    }
+
+    #actividades .actividades-cazo {
+        display: flex;
+        justify-content: center;
+        
+    }
+
+    #actividades p {
+        font-family: ubuntu;
+        display: block;
+        margin-top: 90px;
+        margin-bottom: 0;
+    }
+
+    #actividades h2 {
+        font-size: 3em;
+    }
+
+    #actividades h3 {
+        margin-top: 10px;
+    }
+
+    #actividades .actividades-tipo {
+        padding: 50px;
+        background-size: 100% 180px;
+        background-repeat: no-repeat;
+        background-position-y: 0;
+        background-color: rgba(50, 50, 50, 1);
+        box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .actividades-tipo:first-child {
+        background-image: linear-gradient(0deg,
+                rgba(0, 0, 0, 0.3),
+                rgba(0, 0, 0, 0.3)), url("/imgs/cards/card-deporte.jpg");
+
+    }
+
+    .actividades-tipo:nth-child(2) {
+        background-image: linear-gradient(0deg,
+                rgba(0, 0, 0, 0.3),
+                rgba(0, 0, 0, 0.3)), url("/imgs/cards/card-cultura.jpg");
+    }
+
+    .actividades-tipo:nth-child(3) {
+        background-image: linear-gradient(0deg,
+                rgba(0, 0, 0, 0.3),
+                rgba(0, 0, 0, 0.3)), url("/imgs/cards/card-social.jpg");
+
+    }
+}
+
+footer {
+    text-align: center;
+    background: rgb(41, 41, 41);
+    padding: 30px;
+}
+
+.copyright {
+    color: #FFFFFF;
+    font-size: 13px;
+    margin: 10px;
+}

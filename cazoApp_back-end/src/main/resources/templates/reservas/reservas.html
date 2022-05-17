@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="reservas.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald|Ubuntu">
+    
+    <title>CAZO</title>
+    <link rel="icon" type="image/png" href="img/cazo.png">
+</head>
+
+<body>
+    <nav>
+        <ul class="menu">
+            <li class="logo"><a href="../index-int/index-int.html"><img src="img/cazo.png" width="70px" alt="escudo-cazo"></a></li>
+            <li class="item"><a href="../index-int/index-int.html">Inicio</a></li>
+            <li class="item"><a href="../act-dep-cul-soc/act-dep-cul-soc.html">Actividades</a></li>
+            <li class="item"><a href="../mi-perfil/mi-perfil.html">Mi perfil</a></li>
+            <li class="item"><a href="../reservas/reservas.html">Mis reservas</a></li>
+            <li class="item button"><a href="../index-ext/index-ext.html">Cerrar sesión</a></li>
+            <li class="toggle"><a href="#"><i class="fas fa-bars"></i></a></li>
+        </ul>
+    </nav>
+
+    <main>
+
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">
+                            Editar actividad
+                        </h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <label>Nombre : </label><input class="form-control" type="text" id="nombre" name="" /><br />
+                        <label>Descripcion : </label><textarea class="form-control" type="text" id="descripcion"
+                            name=""></textarea><br />
+                        <label>Imagen : </label><input class="form-control" type="text" id="imagen" name="" />
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                            Cerrar
+                        </button>
+                        <button type="button" class="btn btn-primary">
+                            Guardar cambios
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="tarjeta-reserva">
+                <h1>Reservas</h1>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>ID de Reserva</th>
+                            <th>Actividad</th>
+                            <th>Fecha y Hora</th>
+                            <th>Accion</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td data-label="ID">91218</td>
+                            <td data-label="Actividad">Pileta</td>
+                            <td data-label="Fecha y Hora">01/01/01 08:00hs</td>
+                            <td data-label="Acción">
+                                <a href="#modalDelete" id="delete">Eliminar</a>
+                                <div id="modalDelete" class="modal">
+                                    <div class="modal-contenido">
+                                      <a href="#">x</a>
+                                      <p>Reserva eliminada con éxito.</p>
+                                    </div>  
+                                  </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td data-label="ID">120918</td>
+                            <td data-label="Actividad">Danza</td>
+                            <td data-label="Fecha y Hora">01/01/01 16:00hs</td>
+                            <td data-label="Acción">
+                                <a href="#modalDelete" id="delete">Eliminar</a>
+                                <div id="modalDelete" class="modal">
+                                    <div class="modal-contenido">
+                                      <a href="#">x</a>
+                                      <p>Reserva eliminada con éxito.</p>
+                                    </div>  
+                                  </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td data-label="ID">181209</td>
+                            <td data-label="Actividad">Quincho externo</td>
+                            <td data-label="Fecha y Hora">01/01/01 20:00hs</td>
+                            <td data-label="Acción">
+                                <a href="#modalDelete" id="delete">Eliminar</a>
+                                <div id="modalDelete" class="modal">
+                                    <div class="modal-contenido">
+                                      <a href="#">x</a>
+                                      <p>Reserva eliminada con éxito.</p>
+                                    </div>  
+                                  </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td data-label="ID">91218</td>
+                            <td data-label="Actividad">Gimnasia</td>
+                            <td data-label="Fecha y Hora">02/01/01 08:00hs</td>
+                            <td data-label="Acción">
+                                <a href="#modalDelete" id="delete">Eliminar</a>
+                                <div id="modalDelete" class="modal">
+                                    <div class="modal-contenido">
+                                      <a href="#">x</a>
+                                      <p>Reserva eliminada con éxito.</p>
+                                    </div>  
+                                  </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td data-label="ID">120918</td>
+                            <td data-label="Actividad">Arte</td>
+                            <td data-label="Fecha y Hora">02/01/01 16:00hs</td>
+                            <td data-label="Acción">
+                                <a href="#modalDelete" id="delete">Eliminar</a>
+                                <div id="modalDelete" class="modal">
+                                    <div class="modal-contenido">
+                                      <a href="#">x</a>
+                                      <p>Reserva eliminada con éxito.</p>
+                                    </div>  
+                                  </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td data-label="ID">181209</td>
+                            <td data-label="Actividad">Quincho interno</td>
+                            <td data-label="Fecha y Hora">02/01/01 20:00hs</td>
+                            <td data-label="Acción">
+                                <a href="#modalDelete" id="delete">Eliminar</a>
+                                <div id="modalDelete" class="modal">
+                                    <div class="modal-contenido">
+                                      <a href="#">x</a>
+                                      <p>Reserva eliminada con éxito.</p>
+                                    </div>  
+                                  </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </main>
+
+    <footer>
+        <img src="img/cazo.png" alt="escudo-cazo" width="150px" class="logo">
+        <p class="copyright">&copy Copyright CAZO - 2022</p>
+    </footer>
+
+    <script defer src="reservas.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</body>
+
+</html>

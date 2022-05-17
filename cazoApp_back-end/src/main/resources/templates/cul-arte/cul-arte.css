@@ -1,0 +1,289 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: oswald, serif;
+}
+
+nav {
+    background: rgb(41, 41, 41);
+    padding: 5px 50px;
+}
+
+ul {
+    list-style-type: none;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+a:hover>a:not(.volver-atras) {
+    color: #03aaaa;
+}
+
+
+.logo {
+    filter: drop-shadow(0 2px 5px rgba(255, 255, 255, 0.7));
+}
+
+.logo a:hover {
+    text-decoration: none;
+}
+
+.menu li {
+    font-size: 16px;
+    padding: 5px 5px;
+    white-space: nowrap;
+}
+
+.logo a,
+.toggle a {
+    /* toggle: botón de activación para cambiar un ajuste entre dos estados */
+    font-size: 30px;
+}
+
+.button {
+    border-bottom: 2px rgb(18, 146, 185) solid;
+}
+
+
+
+/* vista para dispositivos móviles */
+
+/* diseño en filas para mostrar en la parte superior de menu el logo y el boton hamburguesa/cierre */
+/* orden: logo(0) - boton hamburguesa/cierre(1) (parte superior del menu), boton de cierre de sesion(2), resto de los elementos(3) */
+
+.menu {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.toggle {
+    order: 1;
+}
+
+.item.button {
+    order: 2;
+}
+
+.item {
+    /* se extienden por todo el contenedor, quedando uno debajo de otro */
+    width: 100%;
+    text-align: center;
+    order: 3;
+    display: none;
+    /* ocultamiento */
+}
+
+.item.active {
+    display: block;
+}
+
+
+/* vista para tablets */
+/*tambien afecta a la vista para computadoras*/
+
+@media all and (min-width: 600px) {
+
+    .menu {
+        justify-content: center;
+    }
+
+    .logo {
+        flex: 1;
+        /* espacio compartido con toggle (si lo hay) */
+    }
+
+    .toggle {
+        flex: 1;
+        /* espacio compartido con logo */
+        text-align: right;
+    }
+
+    .item.button {
+        width: auto;
+        order: 1;
+        display: block;
+    }
+
+    .toggle {
+        order: 2;
+    }
+
+    .button {
+        border: 0;
+    }
+
+    .button a {
+        padding: 7.5px 15px;
+        background: rgb(19, 175, 175);
+        border: 2px #0a7ea1 solid;
+    }
+
+    .button a:hover {
+        text-decoration: none;
+        color: rgb(10, 10, 10);
+    }
+
+    .button a:hover {
+        border-color: #ffffff;
+    }
+
+}
+
+/* vista para computadoras */
+
+@media all and (min-width: 900px) {
+
+    .item {
+        display: block;
+        width: auto;
+    }
+
+    .toggle {
+        display: none;
+    }
+
+    .logo {
+        order: 0;
+    }
+
+    .item {
+        order: 1;
+    }
+
+    .button {
+        order: 2;
+    }
+
+    .menu li {
+        padding: 3px 15px;
+    }
+
+    .menu li.button {
+        padding-right: 0;
+    }
+}
+
+/*-----------------------------*/
+
+.container {
+    width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.img-act {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    height: 90vh;
+    background-image: linear-gradient(0deg,
+            rgba(0, 0, 0, 0.5),
+            rgba(0, 0, 0, 0.5)), url("img/img-arte.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    text-shadow: 3px 3px 3px rgb(0, 0, 0);
+}
+
+.volver-atras {
+    margin-left: 350px;
+    color: #fff;
+    border-bottom: 2px solid #ffffff;
+    font-size: medium;
+}
+
+.img-act h1 {
+    color: #fff;
+    font-size: 45px;
+}
+
+.img-act p {
+    color: #fff;
+    line-height: 1.7;
+    text-align: center;
+    margin: 30px 60px 30px 60px;
+    font-family: ubuntu, serif;
+}
+
+button {
+    font-size: 1em;
+    font-weight: bold;
+    padding: 10px 30px;
+    border-radius: 55px;
+    border: none;
+    box-shadow: 2px 2px 10px rgba(255, 246, 246, 0.5);
+    color: white;
+    background-color: rgb(77, 156, 230);
+}
+
+.form-control {
+    font-family: ubuntu, serif;
+}
+
+.close:hover{
+    color: white;
+}
+
+button:hover>button:not(.close) {
+    background-color: rgb(8, 158, 196);
+}
+
+.modal-title, .modal-body{
+    text-shadow: none;
+}
+
+.modal-body{
+    font-family: ubuntu, serif;
+}
+
+.modal-footer{
+    justify-content: center;
+}
+
+.btn-close{
+    box-sizing: content-box;
+    width: 1em;
+    height: 1em;
+    padding: 0.25em 0.25em;
+    color: #000;
+    border-radius: 0.25rem;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+
+footer {
+    text-align: center;
+    background: rgb(41, 41, 41);
+    padding: 30px;
+}
+
+.copyright {
+    color: #FFFFFF;
+    font-size: 13px;
+    margin: 10px;
+}
+
+@media (min-width: 600px) {
+    .img-act p {
+        margin: 30px 120px 30px 120px;
+    }
+    .volver-atras {
+        margin-left: 1100px;
+        font-size: large;
+    }
+}

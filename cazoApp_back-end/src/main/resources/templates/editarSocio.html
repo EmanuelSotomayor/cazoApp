@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ES" xmlns="http://www.w3.org/1999/xhtml"
+xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>CazoApp - Editar socio</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+        <link type="text/css" rel="stylesheet" href="/css/styles.css">
+    </head>
+    <body>
+    	<main class="container">
+    		<form id="formEdit" th:action="@{/socio/editarSocio/{id}(id=${socio.socio_id})}" method="POST">
+    			<input type="hidden" th:value="${socio.socio_id}" name="socio_id"/>
+    			<input type="hidden" th:value="${procedencia.procedencia_id}" name="procedencia_id"/>
+    			<input class="textInput" type="text" th:value="${socio.socio_nombre}" name="socio_nombre"/>
+    			<input class="textInput" type="text" th:value="${socio.socio_apellido}" name="socio_apellido"/>
+    			<input class="textInput" type="email" th:value="${socio.socio_correo}" name="socio_correo"/>
+    			<input class="textInput" type="text" th:value="${socio.socio_telefono}" name="socio_telefono"/>
+    			<input class="textInput" type="text" th:value="${procedencia.procedencia_nac}" name="procedencia_nac" disabled/>
+    			<input class="textInput" type="text" th:value="${procedencia.procedencia_prov}" name="procedencia_prov"/>
+    			<input class="textInput" type="text" th:value="${procedencia.procedencia_ciudad}" name="procedencia_ciudad"/>
+    			<input class="textInput" type="text" th:value="${procedencia.procedencia_loc}" name="procedencia_loc"/>
+    			<input class="textInput" type="text" th:value="${procedencia.procedencia_dir}" name="procedencia_dir"/>
+    			<input class="textInput" type="text" th:value="${procedencia.procedencia_dir_num}" name="procedencia_dir_num"/>
+    			<input class="textInput" type="text" th:value="${procedencia.procedencia_cod}" name="procedencia_cod"/>
+    			<input id="btn-save" type="submit" value="Guardar">
+    		</form>
+    	</main>
+    	<script src="/js/editForm.js"></script>
+    </body>
+</html>

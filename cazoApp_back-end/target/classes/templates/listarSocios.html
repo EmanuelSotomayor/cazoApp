@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ES" xmlns="http://www.w3.org/1999/xhtml"
+xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>CazoApp - Listado de socios</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+        <link type="text/css" rel="stylesheet" href="/css/styles.css">
+    </head>
+    <body>
+    	<main class="container">
+    		<h1 class="title-listado">Listado de socios</h1>
+    		<table class="listadoSocios">
+    			<thead>
+    				<tr>
+    					<th>ID</th>
+    					<th>Nombre</th>
+    					<th>Apellido</th>
+    					<th>Telefono</th>
+    					<th>Correo electronico</th>
+    					<th>Operaciones</th>
+    				</tr>
+    			</thead>
+    			<tbody>
+    				<tr th:each="socio: ${socios}">
+    					<td th:text="${socio.socio_id}" ></td>
+    					<td th:text="${socio.socio_nombre}"></td>
+    					<td th:text="${socio.socio_apellido}"></td>
+    					<td th:text="${socio.socio_telefono}"></td>
+    					<td th:text="${socio.socio_correo}"></td>
+    					<td>
+    						<a class="btn-op btn-up" th:href="@{/socio/editarSocio/}+${socio.socio_id}">Editar</a>
+    						<a class="btn-op btn-del" th:href="@{/socio/eliminarSocio/}+${socio.socio_id}">Eliminar</a>
+    					</td>
+    				</tr>
+    			</tbody>
+    		</table>
+    	</main>
+    </body>
+</html>

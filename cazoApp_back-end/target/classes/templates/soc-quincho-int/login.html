@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ES" xmlns="http://www.w3.org/1999/xhtml"
+xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<title>CazoApp - Inicio de sesión</title>
+		<meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+	</head>
+	<body>
+		<main class="login-container">
+			<form id="form-sesion" th:action="@{/logincheck}" method="POST">
+				<p th:if="${error != null}" th:text="${error}"></p>
+				<label for="usuario">Usuario <span>*</span></label>
+				<input id="usuario" type="text" placeholder="Ingresa el usuario: " name="usuario_nombre" required/>
+				<label for="clave">Contraseña <span>*</span></label>
+				<input id="clave" type="password" placeholder="Ingresa la contraseña: " name="usuario_clave" required/>
+				<button type="submit">Iniciar Sesión</button>
+			</form>
+		</main>
+	</body>
+</html>

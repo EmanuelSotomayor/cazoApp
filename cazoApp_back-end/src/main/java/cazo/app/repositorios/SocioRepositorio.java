@@ -7,5 +7,5 @@ import cazo.app.modelo.Socio;
 
 @Repository
 public interface SocioRepositorio extends JpaRepository<Socio, Long>{
-
+	
 }

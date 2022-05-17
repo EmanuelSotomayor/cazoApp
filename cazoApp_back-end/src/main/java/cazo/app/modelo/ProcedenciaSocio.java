@@ -9,119 +9,123 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "procedencia")
-public class ProcedenciaSocio{
-	
+public class ProcedenciaSocio {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "procedencia_id")
-	private Long id;
-	
+	private Long procedencia_id;
+
 	@Column(name = "procedencia_nac", length = 100, nullable = false)
-	private String nacionalidad;
-	
+	private String procedencia_nac;
+
 	@Column(name = "procedencia_prov", length = 100, nullable = false)
-	private String provincia;
-	
+	private String procedencia_prov;
+
 	@Column(name = "procedencia_ciudad", length = 100, nullable = false)
-	private String ciudad;
-	
+	private String procedencia_ciudad;
+
 	@Column(name = "procedencia_loc", length = 100, nullable = false)
-	private String localidad;
-	
+	private String procedencia_loc;
+
 	@Column(name = "procedencia_dir", length = 100, nullable = false)
-	private String direccion;
-	
+	private String procedencia_dir;
+
 	@Column(name = "procedencia_dir_num", length = 10, nullable = false)
-	private Integer numDireccion;
-	
+	private Integer procedencia_dir_num;
+
 	@Column(name = "procedencia_cod", length = 10, nullable = false)
-	private String codigoPostal;
+	private String procedencia_cod;
 
 	// Constructor vacio
-	public ProcedenciaSocio() {}
+	public ProcedenciaSocio() {
+	}
 
 	// Constructor parametrizado
-	public ProcedenciaSocio(Long id, String nacionalidad, String provincia, String ciudad, String localidad,
-	String direccion, Integer numDireccion, String codigoPostal) {
-		this.id = id;
-		this.nacionalidad = nacionalidad;
-		this.provincia = provincia;
-		this.ciudad = ciudad;
-		this.localidad = localidad;
-		this.direccion = direccion;
-		this.numDireccion = numDireccion;
-		this.codigoPostal = codigoPostal;
+	public ProcedenciaSocio(Long procedencia_id, String procedencia_nac, String procedencia_prov,
+	String procedencia_ciudad, String procedencia_loc, String procedencia_dir, Integer procedencia_dir_num,
+	String procedencia_cod) {
+		this.procedencia_id = procedencia_id;
+		this.procedencia_nac = procedencia_nac;
+		this.procedencia_prov = procedencia_prov;
+		this.procedencia_ciudad = procedencia_ciudad;
+		this.procedencia_loc = procedencia_loc;
+		this.procedencia_dir = procedencia_dir;
+		this.procedencia_dir_num = procedencia_dir_num;
+		this.procedencia_cod = procedencia_cod;
 	}
 
 	// Getters y setters
-	public Long getId() {
-		return id;
+	public Long getProcedencia_id() {
+		return procedencia_id;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
+	public void setProcedencia_id(Long procedencia_id) {
+		this.procedencia_id = procedencia_id;
 	}
 
-	public String getNacionalidad() {
-		return nacionalidad;
+	public String getProcedencia_nac() {
+		return procedencia_nac;
 	}
 
-	public void setNacionalidad(String nacionalidad) {
-		this.nacionalidad = nacionalidad;
+	public void setProcedencia_nac(String procedencia_nac) {
+		this.procedencia_nac = procedencia_nac;
 	}
 
-	public String getProvincia() {
-		return provincia;
+	public String getProcedencia_prov() {
+		return procedencia_prov;
 	}
 
-	public void setProvincia(String provincia) {
-		this.provincia = provincia;
+	public void setProcedencia_prov(String procedencia_prov) {
+		this.procedencia_prov = procedencia_prov;
 	}
 
-	public String getCiudad() {
-		return ciudad;
+	public String getProcedencia_ciudad() {
+		return procedencia_ciudad;
 	}
 
-	public void setCiudad(String ciudad) {
-		this.ciudad = ciudad;
+	public void setProcedencia_ciudad(String procedencia_ciudad) {
+		this.procedencia_ciudad = procedencia_ciudad;
 	}
 
-	public String getLocalidad() {
-		return localidad;
+	public String getProcedencia_loc() {
+		return procedencia_loc;
 	}
 
-	public void setLocalidad(String localidad) {
-		this.localidad = localidad;
+	public void setProcedencia_loc(String procedencia_loc) {
+		this.procedencia_loc = procedencia_loc;
 	}
 
-	public String getDireccion() {
-		return direccion;
+	public String getProcedencia_dir() {
+		return procedencia_dir;
 	}
 
-	public void setDireccion(String direccion) {
-		this.direccion = direccion;
+	public void setProcedencia_dir(String procedencia_dir) {
+		this.procedencia_dir = procedencia_dir;
 	}
 
-	public Integer getNumDireccion() {
-		return numDireccion;
+	public Integer getProcedencia_dir_num() {
+		return procedencia_dir_num;
 	}
 
-	public void setNumDireccion(Integer numDireccion) {
-		this.numDireccion = numDireccion;
+	public void setProcedencia_dir_num(Integer procedencia_dir_num) {
+		this.procedencia_dir_num = procedencia_dir_num;
 	}
 
-	public String getCodigoPostal() {
-		return codigoPostal;
+	public String getProcedencia_cod() {
+		return procedencia_cod;
 	}
 
-	public void setCodigoPostal(String codigoPostal) {
-		this.codigoPostal = codigoPostal;
+	public void setProcedencia_cod(String procedencia_cod) {
+		this.procedencia_cod = procedencia_cod;
 	}
 
 	@Override
 	public String toString() {
-		return "ProcedenciaSocio [id=" + id + ", nacionalidad=" + nacionalidad + ", provincia=" + provincia
-				+ ", ciudad=" + ciudad + ", localidad=" + localidad + ", direccion=" + direccion + ", numDireccion="
-				+ numDireccion + ", codigoPostal=" + codigoPostal + "]";
+		return "ProcedenciaSocio [procedencia_id=" + procedencia_id + ", procedencia_nac=" + procedencia_nac
+				+ ", procedencia_prov=" + procedencia_prov + ", procedencia_ciudad=" + procedencia_ciudad
+				+ ", procedencia_loc=" + procedencia_loc + ", procedencia_dir=" + procedencia_dir
+				+ ", procedencia_dir_num=" + procedencia_dir_num + ", procedencia_cod=" + procedencia_cod + "]";
 	}
+
 }

@@ -7,6 +7,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -22,141 +23,141 @@ import cazo.app.enumeraciones.SexoSocio;
 
 @Entity
 @Table(name = "socio")
-public class Socio{
-	
+public class Socio {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "socio_id")
-	private Long id;
-	
+	private Long socio_id;
+
 	@Column(name = "socio_nombre", length = 50, nullable = false)
-	private String nombre;
-	
+	private String socio_nombre;
+
 	@Column(name = "socio_apellido", length = 50, nullable = false)
-	private String apellido;
-	
+	private String socio_apellido;
+
 	@Column(name = "socio_sexo", columnDefinition = "ENUM('MASCULINO', 'FEMENINO', 'OTRO')")
 	@Enumerated(EnumType.STRING)
-	private SexoSocio sexo;
-	
+	private SexoSocio socio_sexo;
+
 	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@Column(name = "socio_fecha_nac")
-	private Date fechaNacimiento;
+	private Date socio_fecha_nac;
 	
-	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "documento_id")
-	private DocumentoSocio documento;
-	
-	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "procedencia_id")
-	private ProcedenciaSocio procedencia;
-	
+	/*
+	 Le agregamos la propiedad "unique", para que en la base de datos no se pueda
+	 repetir.
+	 */
+	@Column(name = "socio_correo", length = 255, nullable = false, unique = true)
+	private String socio_correo;
+
 	@Column(name = "socio_telefono", length = 20, nullable = false)
-	private String telefono;
+	private String socio_telefono;
 	
-	//Socio tiene un usuario y de este lado empezamos la relación OneToOne
-	@OneToOne(cascade = CascadeType.ALL)
-	/*Indicamos el nombre que le vamos a dar al campo que se guardará en la
-	base de datos*/
+	@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
+	@JoinColumn(name = "documento_id")
+	private DocumentoSocio documento_id;
+	
+	/*El orphanRemoval, solo funciona sí está declarado el fetch como EAGER*/
+	@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
+	@JoinColumn(name = "procedencia_id")
+	private ProcedenciaSocio procedencia_id;
+
+	// Socio tiene un usuario y de este lado empezamos la relación OneToOne
+	@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
+	/*Indicamos el nombre que le vamos a dar al campo que se guardará en la base de
+	 datos*/
 	@JoinColumn(name = "usuario_id")
-	private Usuario usuario;
-	//Constructor vacio
-	public Socio(){}
-	
+	private Usuario usuario_id;
+
+	// Constructor vacio
+	public Socio() {}
 	//Constructor parametrizado
-	public Socio(Long id, String nombre, String apellido, SexoSocio sexo, 
-	Date fechaNacimiento, DocumentoSocio documento, ProcedenciaSocio procedencia, String telefono,
-	Usuario usuario) {
-		this.id = id;
-		this.nombre = nombre;
-		this.apellido = apellido;
-		this.sexo = sexo;
-		this.fechaNacimiento = fechaNacimiento;
-		this.documento = documento;
-		this.procedencia = procedencia;
-		this.telefono = telefono;
-		this.usuario = usuario;
+	public Socio(Long socio_id, String socio_nombre, String socio_apellido, SexoSocio socio_sexo, Date socio_fecha_nac,
+			String socio_correo, String socio_telefono, DocumentoSocio documento_id, ProcedenciaSocio procedencia_id,
+			Usuario usuario_id) {
+		super();
+		this.socio_id = socio_id;
+		this.socio_nombre = socio_nombre;
+		this.socio_apellido = socio_apellido;
+		this.socio_sexo = socio_sexo;
+		this.socio_fecha_nac = socio_fecha_nac;
+		this.socio_correo = socio_correo;
+		this.socio_telefono = socio_telefono;
+		this.documento_id = documento_id;
+		this.procedencia_id = procedencia_id;
+		this.usuario_id = usuario_id;
 	}
 	
 	//Getters y setters
-	public Long getId() {
-		return id;
+	public Long getSocio_id() {
+		return socio_id;
+	}
+	public void setSocio_id(Long socio_id) {
+		this.socio_id = socio_id;
+	}
+	public String getSocio_nombre() {
+		return socio_nombre;
+	}
+	public void setSocio_nombre(String socio_nombre) {
+		this.socio_nombre = socio_nombre;
+	}
+	public String getSocio_apellido() {
+		return socio_apellido;
+	}
+	public void setSocio_apellido(String socio_apellido) {
+		this.socio_apellido = socio_apellido;
+	}
+	public SexoSocio getSocio_sexo() {
+		return socio_sexo;
+	}
+	public void setSocio_sexo(SexoSocio socio_sexo) {
+		this.socio_sexo = socio_sexo;
+	}
+	public Date getSocio_fecha_nac() {
+		return socio_fecha_nac;
+	}
+	public void setSocio_fecha_nac(Date socio_fecha_nac) {
+		this.socio_fecha_nac = socio_fecha_nac;
+	}
+	public String getSocio_correo() {
+		return socio_correo;
+	}
+	public void setSocio_correo(String socio_correo) {
+		this.socio_correo = socio_correo;
+	}
+	public String getSocio_telefono() {
+		return socio_telefono;
+	}
+	public void setSocio_telefono(String socio_telefono) {
+		this.socio_telefono = socio_telefono;
+	}
+	public DocumentoSocio getDocumento_id() {
+		return documento_id;
+	}
+	public void setDocumento_id(DocumentoSocio documento_id) {
+		this.documento_id = documento_id;
+	}
+	public ProcedenciaSocio getProcedencia_id() {
+		return procedencia_id;
+	}
+	public void setProcedencia_id(ProcedenciaSocio procedencia_id) {
+		this.procedencia_id = procedencia_id;
+	}
+	public Usuario getUsuario_id() {
+		return usuario_id;
+	}
+	public void setUsuario_id(Usuario usuario_id) {
+		this.usuario_id = usuario_id;
 	}
 	
-	public void setId(Long id) {
-		this.id = id;
-	}
-	
-	public String getNombre() {
-		return nombre;
-	}
-	
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
-	
-	public void setUsuario(Usuario usuario){
-		this.usuario = usuario;
-	}
-	
-	public Usuario getUsuario(){
-		return this.usuario;
-	}
-	
-	public String getApellido() {
-		return apellido;
-	}
-	
-	public void setApellido(String apellido) {
-		this.apellido = apellido;
-	}
-	
-	public SexoSocio getSexo() {
-		return sexo;
-	}
-	
-	public void setSexo(SexoSocio sexo) {
-		this.sexo = sexo;
-	}
-	
-	public Date getFechaNacimiento() {
-		return fechaNacimiento;
-	}
-	
-	public void setFechaNacimiento(Date fechaNacimiento) {
-		this.fechaNacimiento = fechaNacimiento;
-	}
-	
-	public DocumentoSocio getDocumento() {
-		return documento;
-	}
-	
-	public void setDocumento(DocumentoSocio documento) {
-		this.documento = documento;
-	}
-	
-	public ProcedenciaSocio getProcedencia() {
-		return procedencia;
-	}
-	
-	public void setProcedencia(ProcedenciaSocio procedencia) {
-		this.procedencia = procedencia;
-	}
-	
-	public String getTelefono() {
-		return telefono;
-	}
-	
-	public void setTelefono(String telefono) {
-		this.telefono = telefono;
-	}
-
 	@Override
 	public String toString() {
-		return "Socio [id=" + id + ", nombre=" + nombre + ", apellido=" + apellido + ", sexo=" + sexo
-				+ ", fechaNacimiento=" + fechaNacimiento + ", documento=" + documento + ", procedencia=" + procedencia
-				+ ", telefono=" + telefono + ", usuario=" + usuario + "]";
+		return "Socio [socio_id=" + socio_id + ", socio_nombre=" + socio_nombre + ", socio_apellido=" + socio_apellido
+				+ ", socio_sexo=" + socio_sexo + ", socio_fecha_nac=" + socio_fecha_nac + ", socio_correo="
+				+ socio_correo + ", socio_telefono=" + socio_telefono + ", documento_id=" + documento_id
+				+ ", procedencia_id=" + procedencia_id + ", usuario_id=" + usuario_id + "]";
 	}
 	
 }

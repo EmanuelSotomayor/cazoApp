@@ -1,0 +1,149 @@
+:root{
+    --background-btn-color: #27abd3;
+    --border-color:#ccc;
+    --background-form-color: #FFFFFF;
+    --background-gradient-color: rgba(0, 0, 0, 0.3);
+    --background-line-color: #ccc;
+    --background-btn-hover: gray;
+    --background-line-color-pseudo: gray;
+    --error-color-message: #f53838;
+    --background-error-color: #ff9090;
+    --background-des-color: #81E979;
+    --des-color-message: #004d09;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+h5{
+    font-family: ubuntu, serif;
+    font-size: small;
+}
+
+a{
+    color: #0f7594;
+}
+
+body{
+    display: grid;
+    place-items: center;
+    place-content: center;
+    min-height: 100vh;
+    background-image: linear-gradient(var(--background-gradient-color), 
+    var(--background-gradient-color)), url(/imgs/img-iniciar-sesion.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position-y: 60%;
+}
+
+.form{
+    width: 70vw;
+    margin: 0 auto;
+    border: 0.0625rem solid var(--border-color);
+    border-radius: 0.30em;
+    padding: 2rem;
+    background-color: var(--background-form-color);
+    transition: 0.5s;
+}
+
+.form-step{
+    display: none;
+    transition: 0.5s;
+}
+
+.form-step-active{
+    display: block;
+    transition: 0.5s;
+}
+
+.title{
+    font-size: 1.5rem;
+    text-align: center;
+    position: relative;
+    bottom: 1.15rem;
+    top: 0.1rem;
+    font-family: oswald, serif;
+}
+
+.form label{
+    display: block;
+    margin-bottom: 0.25em;
+}
+
+.form label span{
+    color: #e73535;
+}
+
+.form input {
+    display: block;
+    width: 100%;
+    padding: 0.50em;
+    border: 0.0625rem solid var(--border-color);
+    outline: none;
+}
+
+.field{
+    margin: 1em 0;
+    font-family: ubuntu, serif;
+}
+
+.btns .btn, .btnFirst{
+    padding: 1em 2em;
+    background-color: var(--background-btn-color);
+    border: none;
+    border-radius: 0.20em;
+    color: var(--font-principal-color);
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    width: 100%;
+    font-family: oswald, serif;
+    font-weight: bold;
+}
+
+.btns{
+    display: grid;
+    gap: 1em;
+}
+
+.btns button:hover, .btnNext button:hover{
+    transition: 0.5s;
+    background-color: var(--background-btn-hover);
+}
+
+.error{
+	width: 100%;
+	padding: 1em;
+	background-color: var(--background-error-color);
+	color: var(--error-color-message);
+	display: inline-block;
+	font-size: .9rem;
+	position: relative;
+	bottom: .43em;
+}
+
+.desautenticacion{
+	width: 100%;
+	padding: 1em;
+	background-color: var(--background-des-color);
+	color: var(--des-color-message);
+	display: inline-block;
+	font-size: .9rem;
+	position: relative;
+	bottom: .43em;
+}
+
+@media (min-width: 600px) {
+    
+    h5{
+        text-align: center;
+    }
+
+    .form{
+        width: 30vw;
+    }
+}
